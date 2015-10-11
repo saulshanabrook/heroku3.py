@@ -1,4 +1,5 @@
 # coding=utf-8
+from __future__ import print_function
 import os
 import heroku3
 from pprint import pprint# noqa
@@ -162,4 +163,4 @@ heroku_conn = heroku3.from_key(HEROKU_API_KEY)
 
 #app.delete()
 
-print heroku_conn._last_request_id
+print(heroku_conn._last_request_id)

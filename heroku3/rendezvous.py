@@ -1,3 +1,4 @@
+from __future__ import print_function
 import socket
 import select
 import ssl
@@ -55,6 +56,6 @@ class Rendezvous():
                 if not data:
                     break
                 if self.printout:
-                    print data.rstrip('\n')
+                    print(data.rstrip('\n'))
                 self.data += data
         return self.data

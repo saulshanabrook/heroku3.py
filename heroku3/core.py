@@ -6,6 +6,7 @@ heroku3.core
 
 This module provides the base entrypoint for heroku3.py.
 """
+from __future__ import unicode_literals
 
 from .api import Heroku
 import requests

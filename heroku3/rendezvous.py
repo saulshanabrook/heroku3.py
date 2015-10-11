@@ -1,10 +1,14 @@
 from __future__ import print_function
+from __future__ import unicode_literals
+from future import standard_library
+standard_library.install_aliases()
+from builtins import object
 import socket
 import select
 import ssl
 import os
 #from pprint import pprint
-from urlparse import urlparse, uses_netloc
+from urllib.parse import urlparse, uses_netloc
 uses_netloc.append('rendezvous')
 
 
@@ -12,7 +16,7 @@ class InvalidResponseFromRendezVous(Exception):
     pass
 
 
-class Rendezvous():
+class Rendezvous(object):
     def __init__(self, url, printout=False):
         self.url = url
         urlp = urlparse(url)

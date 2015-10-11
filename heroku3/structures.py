@@ -6,6 +6,8 @@ heroku3.structures
 
 This module contains the specific Heroku.py data types.
 """
+from __future__ import unicode_literals
+from builtins import object
 
 
 class KeyedListResource(object):

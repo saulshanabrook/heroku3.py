@@ -6,6 +6,7 @@ heroku3.compat
 
 Compatiblity for heroku3.py.
 """
+from __future__ import unicode_literals
 
 try:
     import json

@@ -12,6 +12,7 @@ heroku3.py
 :copyright: (c) 2013 by Heroku.
 :license: MIT, see LICENSE for more details.
 """
+from __future__ import unicode_literals
 
 # Meta.
 

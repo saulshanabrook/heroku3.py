@@ -7,6 +7,12 @@ heroku3.api
 This module provides the basic API interface for Heroku.
 """
 from __future__ import print_function
+from __future__ import unicode_literals
+from future import standard_library
+standard_library.install_aliases()
+from builtins import str
+from builtins import map
+from builtins import object
 
 from .compat import json
 from .helpers import is_collection
@@ -31,7 +37,7 @@ import sys
 if sys.version_info > (3, 0):
     from urllib.parse import quote
 else:
-    from urllib import quote # noqa
+    from urllib.parse import quote # noqa
 
 
 HEROKU_URL = 'https://api.heroku.com'
@@ -91,7 +97,7 @@ class HerokuCore(object):
         return self._api_key_verified
 
     def _url_for(self, *args):
-        args = map(str, args)
+        args = list(map(str, args))
         return '/'.join([self._heroku_url] + list(args))
 
     @staticmethod
@@ -221,7 +227,7 @@ class HerokuCore(object):
         if map is None:
             map = KeyedListResource
 
-        list_resource = map(items=items)
+        list_resource = list(map(items=items))
         list_resource._h = self
         list_resource._obj = obj
         list_resource._kwargs = kwargs

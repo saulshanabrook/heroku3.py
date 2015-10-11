@@ -6,6 +6,8 @@ heroku3.helpers
 
 This module contians the helpers.
 """
+from __future__ import unicode_literals
+from past.builtins import basestring
 
 from datetime import datetime
 
@@ -85,12 +87,12 @@ def to_python(obj,
                 d[in_key] = dict(in_dict.get(in_key))
 
     if object_map:
-        for (k, v) in object_map.items():
+        for (k, v) in list(object_map.items()):
             if in_dict.get(k):
                 d[k] = v.new_from_dict(in_dict.get(k))
 
     if array_map:
-        for (k,v) in array_map.items():
+        for (k,v) in list(array_map.items()):
             if in_dict.get(k):
                 d[k] = [ v.new_from_dict(i) for i in in_dict.get(k)]
 
@@ -133,7 +135,7 @@ def to_api(in_dict, int_keys=None, date_keys=None, bool_keys=None):
                 del in_dict[in_key]
 
     # Remove all Nones
-    for k, v in in_dict.items():
+    for k, v in list(in_dict.items()):
         if v is None:
             del in_dict[k]
 

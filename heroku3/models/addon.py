@@ -7,6 +7,7 @@ class Addon(BaseResource):
     _strs = ['id', 'config', 'name', 'provider_id', 'web_url']
     _pks = ['id']
     _map = {'plan': Plan}
+    _arrays = {'config_vars': string}
     _dates = ['created_at', 'updated_at']
 
     def __repr__(self):
